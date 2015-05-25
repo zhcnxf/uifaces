@@ -56,25 +56,32 @@ public class NavPane extends ViewGroup {
     private RectF mExpandedNameViewBounds = new RectF();
     private RectF mExpandedInviteViewBounds = new RectF();
     private RectF mExpandedSettingsViewBounds = new RectF();
-    private final float dp;
+    private float dp;
     private Animator mAnimator;
     private int heightMayCollapse;
 
     public NavPane(Context context) {
         this(context, null);
+        init(context, null, 0, R.style.NavPane);
     }
 
     public NavPane(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
+        init(context, attrs, 0, R.style.NavPane);
     }
 
     public NavPane(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, R.style.NavPane);
+        super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr, R.style.NavPane);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public NavPane(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        init(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.NavPane, defStyleAttr, defStyleRes);
         mCollapsedHeight = a.getDimensionPixelSize(R.styleable.NavPane_collapsedHeight, 0);
         mExpandedHeight = a.getDimensionPixelSize(R.styleable.NavPane_expandedHeight, 0);

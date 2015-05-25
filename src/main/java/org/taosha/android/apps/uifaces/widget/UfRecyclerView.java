@@ -44,7 +44,7 @@ public class UfRecyclerView extends RecyclerView {
         super(context, attrs, defStyle);
     }
 
-    public void setmTouchDispatcher(TouchDispatcher mTouchDispatcher) {
+    public void setTouchDispatcher(TouchDispatcher mTouchDispatcher) {
         this.mTouchDispatcher = mTouchDispatcher;
     }
 

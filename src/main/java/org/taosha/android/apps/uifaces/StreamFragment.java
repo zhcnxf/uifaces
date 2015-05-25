@@ -23,7 +23,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -118,7 +117,7 @@ public class StreamFragment extends Fragment {
         ButterKnife.inject(this, view);
         int columnCount = adjustColumnCount();
         mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(columnCount, StaggeredGridLayoutManager.VERTICAL));
-        mRecyclerView.setmTouchDispatcher(mTouchDispatcher);
+        mRecyclerView.setTouchDispatcher(mTouchDispatcher);
     }
 
     private int adjustColumnCount() {
